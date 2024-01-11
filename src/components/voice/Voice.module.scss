@@ -1,0 +1,57 @@
+.Wrapper {
+  display: flex;
+  direction: ltr;
+  // padding: 12px;
+  padding: 4px;
+  align-items: center;
+}
+
+.Icon {
+  width: 20px;
+  height: 20px;
+  background-image: url("../../assets/ui/play.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.Pause {
+  background-image: url("../../assets/ui/pause.png");
+}
+
+.ProgressWrapper {
+  margin-left: 10px;
+  position: relative;
+  width: 220px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.Progress {
+  width: 220px;
+  height: 32px;
+  position: absolute;
+  background-image: url("../../assets/ui/soundWave.png");
+  background-size: auto 100%;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.activeProgress {
+  width: 100px;
+  background-image: url("../../assets/ui/activeSoundWave.png");
+}
+
+.ProgressThumb {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #13c2c2;
+  border-radius: 50%;
+  transform: translate(0, -40%);
+}
+
+.Time {
+  color: #6d7483;
+  font-size: 12px;
+}

@@ -1,0 +1,50 @@
+.Wrapper {
+  display: flex;
+  direction: ltr;
+  // padding: 12px;
+  padding: 4px;
+  align-items: center;
+}
+
+.IconWrapper {
+  width: 14px;
+  height: 14px;
+  padding: 15px;
+  background-color: #13c2c2;
+  border-radius: 50%;
+}
+
+.Icon {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/ui/play.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.ProgressWrapper {
+  margin-left: 14px;
+}
+
+.Progress {
+  // width: 180px;
+  width: 100px;
+  position: relative;
+  height: 2px;
+  background: #caddd9;
+  margin: 10px 0;
+}
+
+.ProgressThumb {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #13c2c2;
+  border-radius: 50%;
+  transform: translate(0, -40%);
+}
+
+.Time {
+  color: #6d7483;
+  font-size: 12px;
+}
