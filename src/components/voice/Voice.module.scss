@@ -38,20 +38,6 @@
 }
 
 .activeProgress {
-  width: 100px;
+  width: 0;
   background-image: url("../../assets/ui/activeSoundWave.png");
-}
-
-.ProgressThumb {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: #13c2c2;
-  border-radius: 50%;
-  transform: translate(0, -40%);
-}
-
-.Time {
-  color: #6d7483;
-  font-size: 12px;
 }

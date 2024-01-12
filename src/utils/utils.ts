@@ -49,3 +49,61 @@ export function similarity(s1: string, s2: string) {
   }
   return (longerLength - editDistance(longer, shorter)) / longerLength;
 }
+
+export const formatSeconds = (total: number) => {
+  const hours = Math.floor(total / (60 * 60));
+  const remainingSeconds = total % (60 * 60);
+  const minute = Math.floor(remainingSeconds / 60);
+  const seconds = Math.floor(remainingSeconds % 60);
+
+  const result: number[] = [];
+  if (hours > 0) {
+    result.push(hours);
+  }
+  result.push(minute, seconds);
+  return result.map((t) => t.toString().padStart(2, "0")).join(":");
+};
+
+const hindiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+export const digitsToHindi = (number?: string): string => {
+  return (
+    number?.replace(/[0-9]/g, function (w) {
+      return hindiDigits[+w];
+    }) ?? ""
+  );
+};
+
+export const phoneValidate = (value: string, zeroOptional = true): boolean => {
+  const v =
+    zeroOptional && !(value.startsWith("0") || value.startsWith("۰"))
+      ? "0" + value
+      : value;
+  return Boolean(v.match(/^[0۰][0-9۰-۹]{10}$/g));
+};
+
+export const handleChangeTheme = () => {
+  document.documentElement.style.setProperty(
+    "--color-neutrals-n-10",
+    "#1A1B1C"
+  );
+  document.documentElement.style.setProperty(
+    "--color-neutrals-n-20",
+    "#1F1F21"
+  );
+  document.documentElement.style.setProperty(
+    "--color-neutrals-n-400",
+    "#BDC2C9"
+  );
+  document.documentElement.style.setProperty(
+    "--color-neutrals-n-500",
+    "#DFE1E5"
+  );
+  document.documentElement.style.setProperty(
+    "--color-bubble-out-primary",
+    "#005C56"
+  );
+  document.documentElement.style.setProperty("--background", "#0B0E14");
+  document.documentElement.style.setProperty("--wallpaper", "#111212");
+  document.documentElement.style.setProperty("--border", "#2c2c2c");
+  document.documentElement.style.setProperty("--scroll", "#ffffff33");
+};

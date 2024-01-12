@@ -19,33 +19,31 @@
   flex-direction: column;
   border-radius: 15px 15px 15px 0px;
   padding: 4px;
-  background-color: white;
+  background-color: var(--color-neutrals-n-20);
   box-sizing: border-box;
   position: relative;
   transform: translateX(6px);
   margin-bottom: 10px;
   font-size: 14px;
   direction: rtl;
-  align-items: center;
+  color: var(--color-neutrals-n-500);
 }
 
 .sendByMeMessage {
   border-radius: 15px 15px 0 15px;
   transform: translateX(-6px);
-  background-color: #e4f9f5;
-}
-
-.sendByMeMessage::before {
-  right: -6px !important;
-  background-image: url("../../assets/ui/bubbleGreen.svg") !important;
-  transform: scale(-1, 1);
+  background-color: var(--color-bubble-out-primary);
 }
 
 .message > * {
   z-index: 2;
 }
 
-.message > img {
+.ImageContainer {
+  position: relative;
+}
+
+.ImageContainer > img {
   max-width: 310px;
   border-radius: 15px;
 }
@@ -55,12 +53,23 @@
   padding: 4px;
 }
 
-.message::before {
-  content: "";
+.Bubble {
   position: absolute;
-  width: 22px;
-  height: 24px;
   bottom: 0;
   left: -6px;
-  background-image: url("../../assets/ui/bubble.svg");
+  fill: var(--color-neutrals-n-20);
+  z-index: 0;
+}
+
+.sendByMeBubble {
+  right: -6px !important;
+  transform: scale(-1, 1);
+  fill: var(--color-bubble-out-primary);
+}
+
+.Play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

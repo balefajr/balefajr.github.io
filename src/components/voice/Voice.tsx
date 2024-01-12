@@ -8,10 +8,11 @@ interface Props {
 }
 
 export const Voice: React.FC<Props> = (props) => {
-  const ref = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const onPlayPauseClick = () => {
-    const audio = ref.current;
+    const audio = audioRef.current;
     if (audio) {
       if (!isPlaying) {
         audio.play().then(() => setIsPlaying(true));
@@ -22,37 +23,30 @@ export const Voice: React.FC<Props> = (props) => {
     }
   };
   const onProgress = () => {
-    const audio = ref.current;
+    const audio = audioRef.current;
     if (audio) {
       const { currentTime, duration } = audio;
-      window.console.log("h", currentTime, duration);
       const progress = currentTime / duration;
-      const progressElement = audio.parentElement?.querySelector(
-        `.${styles.Progress}`
-      ) as HTMLDivElement;
-      const activeProgressElement = audio.parentElement?.querySelector(
-        `.${styles.activeProgress}`
-      ) as HTMLDivElement;
-      if (progressElement && activeProgressElement) {
-        activeProgressElement.style.width = `${progress * 220}px`;
+      if (progressRef.current) {
+        progressRef.current.style.width = `${progress * 220}px`;
       }
     }
   };
   const onChangePosition = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
-    if (ref.current) ref.current.currentTime = (x / 220) * ref.current.duration;
+    if (audioRef.current)
+      audioRef.current.currentTime = (x / 220) * audioRef.current.duration;
   };
   const onEnded = () => {
     setIsPlaying(false);
-    if (ref.current) ref.current.currentTime = 0;
+    if (audioRef.current) audioRef.current.currentTime = 0;
   };
   return (
     <div className={styles.Wrapper} style={props.style}>
       <audio
-        controls
         style={{ display: "none" }}
-        ref={ref}
+        ref={audioRef}
         onTimeUpdate={onProgress}
         onEnded={onEnded}
       >
@@ -66,7 +60,10 @@ export const Voice: React.FC<Props> = (props) => {
       />
       <div className={styles.ProgressWrapper} onClick={onChangePosition}>
         <div className={styles.Progress} />
-        <div className={classNames(styles.Progress, styles.activeProgress)} />
+        <div
+          className={classNames(styles.Progress, styles.activeProgress)}
+          ref={progressRef}
+        />
       </div>
     </div>
   );
