@@ -10,9 +10,12 @@ import {
   similarity,
 } from "../../utils/utils";
 import { GlassAgencyDirector } from "../../levels/glassAgency/glassAgency";
-import { SeperationFather } from "../../levels/seperation/seperation";
+import {
+  SeperationFather,
+  SeperationFatherReal,
+} from "../../levels/seperation/seperation";
 import { CubeOfSugarMusic } from "../../levels/cubeOfSugar/cubeOfSugar";
-import { WardenGallows } from "../../levels/warden/warden";
+import { WardenGallows, WardenGallowsReal } from "../../levels/warden/warden";
 import { TenantsSticker } from "../../levels/tenants/tenants";
 import { AboutEllyPoster } from "../../levels/aboutElly/aboutElly";
 import { FriendHousePoster } from "../../levels/friendHouse/friendHouse";
@@ -40,9 +43,11 @@ http://balefajr.github.io/214lkjflkjaj`}
       key={"checkpoint"}
     />,
     <DuelMusic key={"دوئل"} />,
-    <WardenGallows key={"سرخپوست"} />,
+    <WardenGallowsReal key={"سرخپوست"} />,
+    // <WardenGallows key={"سرخپوست"} />,
     <CubeOfSugarMusic key={"یه حبه قند"} />,
-    <SeperationFather key={"جدایی نادر از سیمین"} />,
+    <SeperationFatherReal key={"جدایی نادر از سیمین"} />,
+    // <SeperationFather key={"جدایی نادر از سیمین"} />,
     <GlassAgencyDirector key={"ابراهیم حاتمی کیا"} />,
     <HamoonSahmeManReal key={"هامون"} />,
     <HamoonSahmeMan key={"هامون"} />,

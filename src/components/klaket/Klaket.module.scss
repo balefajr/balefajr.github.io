@@ -1,0 +1,29 @@
+.Container {
+  position: relative;
+}
+
+.Klaket {
+  width: 300px;
+}
+
+.VideoContainer {
+  position: absolute;
+  mix-blend-mode: screen;
+  left: 12px;
+  top: 105.5px;
+  display: flex;
+}
+
+.Video {
+  width: 279px;
+}
+
+.Gradient {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, black 100%);
+  pointer-events: none;
+}

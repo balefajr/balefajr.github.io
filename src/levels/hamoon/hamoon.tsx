@@ -1,6 +1,6 @@
 import React from "react";
 import { Message } from "../../components/message/Message";
-import sahmeManImg from "./assets/sahmeMan.png";
+import sahmeManImg from "./assets/sahmeMan2.png";
 import sahmeManRawImg from "./assets/sahmeMan.jpg";
 import { Voice } from "../../components/voice/Voice";
 import { getPublicUrl } from "../../utils/utils";
