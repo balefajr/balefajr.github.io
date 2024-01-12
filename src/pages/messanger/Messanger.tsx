@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Messanger.module.scss";
 import { Message } from "../../components/message/Message";
-import { HamoonSahmeMan } from "../../levels/hamoon/hamoon";
+import { HamoonSahmeMan, HamoonSahmeManReal } from "../../levels/hamoon/hamoon";
 import { ReactComponent as Send } from "../../assets/ui/send.svg";
 import {
   handleChangeTheme,
@@ -16,6 +16,7 @@ import { WardenGallows } from "../../levels/warden/warden";
 import { TenantsSticker } from "../../levels/tenants/tenants";
 import { AboutEllyPoster } from "../../levels/aboutElly/aboutElly";
 import { FriendHousePoster } from "../../levels/friendHouse/friendHouse";
+import { DuelMusic } from "../../levels/duel/duel";
 
 export const Messanger = () => {
   const [answer, setAnswer] = useState("");
@@ -38,10 +39,12 @@ export const Messanger = () => {
 http://balefajr.github.io/214lkjflkjaj`}
       key={"checkpoint"}
     />,
+    <DuelMusic key={"دوئل"} />,
     <WardenGallows key={"سرخپوست"} />,
     <CubeOfSugarMusic key={"یه حبه قند"} />,
     <SeperationFather key={"جدایی نادر از سیمین"} />,
     <GlassAgencyDirector key={"ابراهیم حاتمی کیا"} />,
+    <HamoonSahmeManReal key={"هامون"} />,
     <HamoonSahmeMan key={"هامون"} />,
     <Message
       text={`

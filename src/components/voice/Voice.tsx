@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 interface Props {
   style?: React.CSSProperties;
+  className?: string;
   src: string;
 }
 
@@ -43,7 +44,10 @@ export const Voice: React.FC<Props> = (props) => {
     if (audioRef.current) audioRef.current.currentTime = 0;
   };
   return (
-    <div className={styles.Wrapper} style={props.style}>
+    <div
+      className={classNames(styles.Wrapper, props.className)}
+      style={props.style}
+    >
       <audio
         style={{ display: "none" }}
         ref={audioRef}

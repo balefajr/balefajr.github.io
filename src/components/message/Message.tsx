@@ -13,6 +13,7 @@ interface Props {
   videoSrc?: string;
   messageOnly?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export const Message: React.FC<PropsWithChildren<Props>> = (props) => {
@@ -43,6 +44,7 @@ export const Message: React.FC<PropsWithChildren<Props>> = (props) => {
       className={classNames(styles.messageWrapper, {
         [styles.sendByMeWrapper]: props.sendByMe,
       })}
+      style={props.style}
     >
       <div className={styles.messageContainer}>
         {props.children}
