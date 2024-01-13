@@ -1,0 +1,18 @@
+.Container {
+  position: relative;
+  display: flex;
+  transform: translateX(-36px);
+}
+
+.Polaroid {
+  width: 300px;
+}
+
+.Photo {
+  width: 173px;
+  height: 174px;
+  position: absolute;
+  left: 70px;
+  top: 51px;
+  background-size: auto 100%;
+}

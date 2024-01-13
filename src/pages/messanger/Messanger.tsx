@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Messanger.module.scss";
 import { Message } from "../../components/message/Message";
-import { HamoonSahmeMan, HamoonSahmeManReal } from "../../levels/hamoon/hamoon";
+import {
+  HamoonSahmeMan,
+  HamoonSahmeManReal,
+  HamoonSahmeNeat,
+} from "../../levels/hamoon/hamoon";
 import { ReactComponent as Send } from "../../assets/ui/send.svg";
 import {
   handleChangeTheme,
@@ -17,9 +21,13 @@ import {
 import { CubeOfSugarMusic } from "../../levels/cubeOfSugar/cubeOfSugar";
 import { WardenGallows, WardenGallowsReal } from "../../levels/warden/warden";
 import { TenantsSticker } from "../../levels/tenants/tenants";
-import { AboutEllyPoster } from "../../levels/aboutElly/aboutElly";
+import {
+  AboutEllyKite,
+  AboutEllyPoster,
+} from "../../levels/aboutElly/aboutElly";
 import { FriendHousePoster } from "../../levels/friendHouse/friendHouse";
 import { DuelMusic } from "../../levels/duel/duel";
+import { TangeWar } from "../../levels/tange/tange";
 
 export const Messanger = () => {
   const [answer, setAnswer] = useState("");
@@ -27,7 +35,8 @@ export const Messanger = () => {
   const questionsRef = useRef([
     <TenantsSticker key={"اجاره نشین ها"} />,
     <FriendHousePoster key={"خانه دوست کجاست؟"} />,
-    <AboutEllyPoster key={"درباره الی"} />,
+    <AboutEllyKite key={"درباره الی"} />,
+    // <AboutEllyPoster key={"درباره الی"} />,
     <Message
       text={
         "یه کد پنج رقمی برات ارسال شد. اون رو وارد کن. (الان برای تست 12345)"
@@ -42,6 +51,7 @@ export const Messanger = () => {
 http://balefajr.github.io/214lkjflkjaj`}
       key={"checkpoint"}
     />,
+    <TangeWar key={"تنگه ابوقریب"} />,
     <DuelMusic key={"دوئل"} />,
     <WardenGallowsReal key={"سرخپوست"} />,
     // <WardenGallows key={"سرخپوست"} />,
@@ -49,6 +59,7 @@ http://balefajr.github.io/214lkjflkjaj`}
     <SeperationFatherReal key={"جدایی نادر از سیمین"} />,
     // <SeperationFather key={"جدایی نادر از سیمین"} />,
     <GlassAgencyDirector key={"ابراهیم حاتمی کیا"} />,
+    <HamoonSahmeNeat key={"هامون"} />,
     <HamoonSahmeManReal key={"هامون"} />,
     <HamoonSahmeMan key={"هامون"} />,
     <Message

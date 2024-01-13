@@ -4,6 +4,7 @@ import sahmeManImg from "./assets/sahmeMan2.png";
 import sahmeManRawImg from "./assets/sahmeMan.jpg";
 import { Voice } from "../../components/voice/Voice";
 import { getPublicUrl } from "../../utils/utils";
+import { Dialogue } from "../../components/Dialogue/Dialogue";
 
 const sahmeManTxt = `👆 این صحنه مربوط به کدوم فیلمه؟ 🤔`;
 
@@ -26,4 +27,15 @@ export const HamoonSahmeManReal = () => (
 
 export const HamoonSahmeMan = () => (
   <Message imgSrc={sahmeManRawImg} text={sahmeManTxt} />
+);
+
+export const HamoonSahmeNeat = () => (
+  <>
+    <Dialogue
+      photoSrc={sahmeManRawImg}
+      photoPosition="-30px"
+      audioSrc={getPublicUrl("assets/levels/hamoon/sahmeMan.mp3")}
+    />
+    <Message text={sahmeManTxt} style={{ transform: "translateY(-10px)" }} />
+  </>
 );
