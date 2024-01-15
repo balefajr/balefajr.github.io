@@ -53,6 +53,7 @@ export const Voice: React.FC<Props> = (props) => {
         ref={audioRef}
         onTimeUpdate={onProgress}
         onEnded={onEnded}
+        onPause={() => setIsPlaying(false)}
       >
         <source src={props.src} type="audio/mp3" />
       </audio>

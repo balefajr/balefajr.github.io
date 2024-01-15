@@ -1,0 +1,37 @@
+.Container {
+  position: relative;
+}
+
+.Gif {
+  width: 250px;
+  transform: translate(36px, -36px);
+  position: relative;
+  z-index: -2;
+}
+
+.LightingWrapper {
+  position: absolute;
+  bottom: 11px;
+  left: 18px;
+}
+
+.LightingContainer {
+  position: relative;
+}
+
+.Lighting {
+  width: 275px;
+  z-index: -1;
+  position: relative;
+  opacity: 0.5;
+}
+
+.Background {
+  position: absolute;
+  background-color: white;
+  width: 93.5%;
+  height: 72%;
+  top: 43px;
+  left: 15px;
+  z-index: -2;
+}

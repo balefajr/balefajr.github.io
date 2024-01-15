@@ -28,8 +28,33 @@ import {
 import { FriendHousePoster } from "../../levels/friendHouse/friendHouse";
 import { DuelMusic } from "../../levels/duel/duel";
 import { TangeWar } from "../../levels/tange/tange";
+import confettiAnimation from "./confetti.json";
+import lottie, { AnimationItem } from "lottie-web";
+import { MLikeMotherMusic } from "../../levels/mLikeMother/mLikeMother";
+import { RageKhabGif } from "../../levels/rageKhab/rageKhab";
 
 export const Messanger = () => {
+  useEffect(() => {
+    document.addEventListener(
+      "play",
+      function (e) {
+        var audios = document.getElementsByTagName("audio");
+        for (var i = 0, len = audios.length; i < len; i++) {
+          if (audios[i] != e.target) {
+            audios[i].pause();
+          }
+        }
+        var videos = document.getElementsByTagName("video");
+        for (var i = 0, len = videos.length; i < len; i++) {
+          if (videos[i] != e.target) {
+            videos[i].pause();
+          }
+        }
+      },
+      true
+    );
+  }, []);
+
   const [answer, setAnswer] = useState("");
   const [messagesList, setMessagesList] = useState<JSX.Element[]>([]);
   const questionsRef = useRef([
@@ -51,8 +76,10 @@ export const Messanger = () => {
 http://balefajr.github.io/214lkjflkjaj`}
       key={"checkpoint"}
     />,
-    <TangeWar key={"تنگه ابوقریب"} />,
-    <DuelMusic key={"دوئل"} />,
+    // <TangeWar key={"تنگه ابوقریب"} />,
+    <RageKhabGif key={"رگ خواب"} />,
+    // <DuelMusic key={"دوئل"} />,
+    <MLikeMotherMusic key={"میم مثل مادر"} />,
     <WardenGallowsReal key={"سرخپوست"} />,
     // <WardenGallows key={"سرخپوست"} />,
     <CubeOfSugarMusic key={"یه حبه قند"} />,
@@ -60,8 +87,8 @@ http://balefajr.github.io/214lkjflkjaj`}
     // <SeperationFather key={"جدایی نادر از سیمین"} />,
     <GlassAgencyDirector key={"ابراهیم حاتمی کیا"} />,
     <HamoonSahmeNeat key={"هامون"} />,
-    <HamoonSahmeManReal key={"هامون"} />,
-    <HamoonSahmeMan key={"هامون"} />,
+    // <HamoonSahmeManReal key={"هامون"} />,
+    // <HamoonSahmeMan key={"هامون"} />,
     <Message
       text={`
 سلام 👋
@@ -160,13 +187,16 @@ http://balefajr.github.io/214lkjflkjaj`}
       if (
         currentQuestionRef.current &&
         currentQuestionRef.current.key &&
-        similarity(currentQuestionRef.current.key, answer.trim()) > 0.7
+        similarity(currentQuestionRef.current.key, answer.trim()) > 0.75
       ) {
         let next: JSX.Element;
         const answer = currentQuestionRef.current.key;
         if (questionsRef.current.length) {
           currentQuestionRef.current = questionsRef.current.pop()!;
           next = currentQuestionRef.current!;
+          if (next.key === "checkpoint") {
+            animationRef.current?.play();
+          }
         } else {
           next = (
             <Message
@@ -193,8 +223,26 @@ http://balefajr.github.io/214lkjflkjaj`}
       }
     }, 600);
   };
+  const animationContainerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<AnimationItem>();
+  useEffect(() => {
+    if (animationContainerRef.current) {
+      animationRef.current = lottie.loadAnimation({
+        container: animationContainerRef.current,
+        renderer: "svg",
+        loop: false,
+        autoplay: false,
+        animationData: confettiAnimation,
+      });
+      animationRef.current.addEventListener("complete", () => {
+        animationRef.current?.destroy();
+      });
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
+      <div ref={animationContainerRef} className={styles.Animation} />
       <div className={styles.bar}>
         <div className={styles.avatar}></div>
         <p className={styles.name}>بله | سودای سیمرغ</p>
@@ -213,7 +261,7 @@ http://balefajr.github.io/214lkjflkjaj`}
         <input
           className={styles.input}
           type="text"
-          placeholder="پیام خود را بنویسید..."
+          placeholder="اینجا بنویس..."
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
           onKeyDown={onKeyDown}
